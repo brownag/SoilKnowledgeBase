@@ -395,6 +395,7 @@ osd_to_json <- function(logfile = file.path(output_dir, "OSD.log"),
     # SPC-style components from parseOSD returned as nested data.frames in JSON
     x$SITE <- I(list(parsed.OSD$`site-data`))
     x$HORIZONS <- I(list(parsed.OSD$`hz-data`))
+    x$RIC <- parsed.OSD$`ric-data`
 
     if (is.logical(x))
       if (!x) return(FALSE)

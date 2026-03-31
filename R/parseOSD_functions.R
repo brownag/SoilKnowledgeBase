@@ -30,6 +30,17 @@
   else
     l[['hz-data']] <- data.frame(name = NA)
 
+  # RIC extraction
+  ric_content <- x$`RANGE IN CHARACTERISTICS`$content
+  if (!is.null(ric_content) && is.character(ric_content) && nzchar(ric_content)) {
+    tp_header <- if (length(tp) > 0) tp[[1]][1] else ""
+    default_cs <- .extractRICDefaultColorState(tp_header)
+    l[['ric-data']] <- try(.extractRICData(ric_content, default_cs), silent = TRUE)
+    if (inherits(l[['ric-data']], 'try-error')) l[['ric-data']] <- list()
+  } else {
+    l[['ric-data']] <- list()
+  }
+
   return(l)
 }
 

@@ -8,3 +8,11 @@ tests/inst/*
 inst/doc
 /doc/
 /Meta/
+*.Rcheck/
+OSD/
+scratch/
+inst/extdata/KST/*.rda
+inst/extdata/KST/*.Rda
+inst/extdata/GDS/*.log
+misc/rebuild.log
+*.tar.gz
